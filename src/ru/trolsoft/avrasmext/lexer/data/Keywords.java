@@ -17,7 +17,7 @@ import java.util.TreeSet;
 public class Keywords {
 	private static final Set<String> KEYWORDS = set(
 			  "if", "else", "goto", "loop", "break", "continue", "as",
-			  "ptr", "byte", "word", "dword", "prgptr"
+			  "ptr", "byte", "word", "dword", "prgptr", "do", "while"
 	);
 	private static final Set<String> DIRECTIVES = setCi(
 			  ".proc", ".endproc", ".use", ".args", ".extern",
@@ -35,11 +35,11 @@ public class Keywords {
 	);
 	private static final Set<String> FLAGS = set("F_GLOBAL_INT", "F_BIT_COPY", "F_HALF_CARRY", "F_SIGN", "F_TCO",
 																"F_NEG", "F_ZERO", "F_CARRY");
-	private static final Set<String> ARRAYS = set("ram", "prg", "io");
+	private static final Set<String> ARRAYS = set("ram", "prg", "io", "iow");
 
 	private static final Set<String> BUILTINS = set(
 		// AVRA
-		"LOW", "HIGH", "BYTE2", "BYTE3", "BYTE4", "LWRD", "HWRD", "PAGE", "EXP2", "LOG2",
+		"LOW", "HIGH", "BYTE1", "BYTE2", "BYTE3", "BYTE4", "LWRD", "HWRD", "PAGE", "EXP2", "LOG2",
 		// GCC
 		"lo8", "hi8", "hh8", "hlo8", "hhi8", "pm_lo8", "pm_hi8", "pm_hh8", "pm", "_SFR_IO_ADDR"
 	);

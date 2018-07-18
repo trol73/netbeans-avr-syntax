@@ -21,9 +21,9 @@ import ru.trolsoft.avrasmext.lexer.data.Keywords;
  * @author trol
  */
 public class AvrxLexer implements Lexer<AvrxTokenId> {
-    private final LexerRestartInfo<AvrxTokenId> info;
+	private final LexerRestartInfo<AvrxTokenId> info;
 
-	 private static final String OPERATORS = "+-=!,.<>;()[]{}|&*/^%:";
+	private static final String OPERATORS = "+-=!,.<>;()[]{}|&*/^%:";
 
 	private static final Logger log = Logger.getLogger(AvrxLexer.class.getName());
 
@@ -279,6 +279,9 @@ public class AvrxLexer implements Lexer<AvrxTokenId> {
 	}
 
 	private Token<AvrxTokenId> checkPreprocessorDirective(LexerInput input) {
+		if (state == State.BLOCK_COMMENT) {
+			return create(AvrxTokenId.COMMENT_BLOCK);
+		}
 		int ch;
 		do {
 			ch = input.read();
